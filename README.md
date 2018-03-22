@@ -22,6 +22,7 @@ Or install it yourself as:
 
 ```ruby
 Zlk.config_file = Rails.root.join('config', 'zlk.yml')
+Zlk.env = Rails.env
 
 Zlk.create_lock('lock/path').run_exclusively { <your code> }
 ```

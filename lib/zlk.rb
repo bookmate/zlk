@@ -34,6 +34,15 @@ module Zlk
       @connection_pool
     end
 
+    def env=(env)
+      @env = env
+      @config = nil
+    end
+
+    def env
+      @env
+    end
+
     def config_file=(filepath)
       @config_file = filepath
       @config = nil
@@ -47,7 +56,7 @@ module Zlk
       @config ||= begin
         yaml = ERB.new(File.read(config_file)).result
         hash = YAML.load(yaml)
-        Zlk::Config.new(hash[Rails.env]) if hash
+        Zlk::Config.new(hash[env]) if hash
       end
     end
   end
