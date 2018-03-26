@@ -1,3 +1,5 @@
+require 'zk'
+
 module Zlk
   class Lock
     LockWaitTimeoutError = Class.new(StandardError)
